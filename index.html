@@ -13,6 +13,124 @@
   <header class="bg-white shadow p-6 text-center">
     <h1 class="text-2xl font-bold">Proyek ISB2 - Tim Anak-Anak Gabut</h1>
     <p class="text-gray-500">Kolaborasi anggota kelompok</p>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container untuk simulasi berbagi dengan kelompok */
+        .group-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Styling Card Profile Wisata (Kompak) */
+        .profile-card {
+            width: 260px;
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Header / Bagian Gambar Wisata */
+        .card-header {
+            position: relative;
+            height: 130px;
+            /* Ganti URL gambar di bawah dengan foto destinasi wisata pilihan Anda */
+            background-image: url('blob:https://web.whatsapp.com/c4381eac-cc28-4aad-b39d-270cfb06c98a');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5));
+        }
+
+        .location-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 4px 8px;
+            font-size: 11px;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+            z-index: 1;
+        }
+
+        /* Foto Profil Melingkar di atas Header/Body */
+        .avatar-container {
+            display: flex;
+            justify-content: center;
+            margin-top: -35px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Bagian Informasi Identitas */
+        .card-body {
+            padding: 10px 15px 20px 15px;
+            text-align: center;
+        }
+
+        .name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 2px;
+        }
+
+        .role {
+            font-size: 12px;
+            color: #27ae60;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .bio {
+            font-size: 12px;
+            color: #7f8c8d;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        
+    </style>
   </header>
 
   <main class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 max-w-6xl mx-auto">
@@ -102,21 +220,25 @@
 
 
     <!-- ===== CARD 3 - Arga Ardhana Pangestu Ashari ===== -->
-```html
 <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-300">
 
     <!-- Header / Foto Lokasi -->
-    <div
-        class="h-48 bg-cover bg-center relative"
-        style="background-image: url('Equator Park Jeruju Besar.JPEG');">
+   ```html
+<div 
+    class="h-48 bg-cover bg-center relative"
+    style="background-image: url('Equator Park Jeruju Besar.JPEG');">
 
-        <span
-            class="absolute bottom-3 left-3 bg-black/60 text-white
-                   px-3 py-1 rounded-full text-sm backdrop-blur-sm">
-            Equator Park Jeruju Besar
-        </span>
+    <span class="absolute bottom-3 left-3
+                 bg-black/60 text-white
+                 px-3 py-2
+                 rounded-full
+                 text-sm font-medium
+                 shadow-md">
+        Equator Park Jeruju Besar
+    </span>
 
-    </div>
+</div>
+```
 
 
     <!-- Foto Profil -->
@@ -150,9 +272,6 @@
     </div>
 
 </div>
-```
-
-
     <!-- ===== CARD 4 - Rafli Gustiansyah ===== -->
      <article class="md:col-start-3 bg-white rounded-lg shadow-md overflow-hidden flex flex-col hover:shadow-xl hover:-translate-y-1 transition duration-300">
       <div class="relative">
