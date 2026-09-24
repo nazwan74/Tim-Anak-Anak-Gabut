@@ -1,0 +1,344 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ISB2 - Tim Anak-Anak Gabut</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800 min-h-screen">
+
+  <!-- HEADER -->
+  <header class="bg-white shadow-md p-6 text-center">
+    <h1 class="text-2xl md:text-3xl font-bold">
+      Proyek ISB2 - Tim Anak-Anak Gabut
+    </h1>
+
+    <p class="text-gray-500 mt-2">
+      Kolaborasi anggota kelompok
+    </p>
+  </header>
+
+
+  <!-- FORM TAMBAH ANGGOTA -->
+  <section class="max-w-4xl mx-auto p-6">
+
+    <div class="bg-white rounded-2xl shadow-md p-6">
+
+      <h2 class="text-xl font-bold mb-4">
+        Tambah Anggota
+      </h2>
+
+      <form id="formAnggota" class="grid gap-4">
+
+        <input
+          type="text"
+          id="nama"
+          placeholder="Nama anggota"
+          class="border rounded-lg p-3"
+          required
+        >
+
+        <input
+          type="text"
+          id="lokasi"
+          placeholder="Lokasi wisata"
+          class="border rounded-lg p-3"
+          required
+        >
+
+        <input
+          type="text"
+          id="fotoProfil"
+          placeholder="Nama file foto profil"
+          class="border rounded-lg p-3"
+          required
+        >
+
+        <input
+          type="text"
+          id="fotoLokasi"
+          placeholder="Nama file foto lokasi"
+          class="border rounded-lg p-3"
+          required
+        >
+
+        <textarea
+          id="bio"
+          placeholder="Deskripsi anggota"
+          class="border rounded-lg p-3"
+          required
+        ></textarea>
+
+        <button
+          type="submit"
+          class="bg-green-600 hover:bg-green-700
+                 text-white font-semibold
+                 py-3 rounded-lg transition">
+
+          Tambah Anggota
+
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+  <!-- DAFTAR ANGGOTA -->
+  <main
+    id="group-container"
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
+           gap-6 p-6 max-w-6xl mx-auto">
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="text-center text-gray-400 text-sm p-4">
+    &copy; 2026 Tim ISB2
+  </footer>
+
+
+  <script>
+
+    // ==========================================
+    // DATA AWAL
+    // ==========================================
+
+    let anggota = [
+
+      {
+        id: ,
+        nama: "Arga Ardhana Pangestu Ashari",
+        lokasi: "Equator Park Jeruju Besar",
+        fotoProfil: "Foto Di Bis.JPEG",
+        fotoLokasi: "Equator Park Jeruju Besar.JPEG",
+        bio: "Suka menikmati sunset sambil bikin konten."
+      },
+
+      
+    ];
+
+
+    // ==========================================
+    // AMBIL ELEMENT DENGAN DOM
+    // ==========================================
+
+    const container =
+      document.getElementById("group-container");
+
+    const form =
+      document.getElementById("formAnggota");
+
+
+    // ==========================================
+    // READ / MENAMPILKAN DATA
+    // ==========================================
+
+    function tampilkanAnggota() {
+
+      // Menghapus isi container terlebih dahulu
+      container.innerHTML = "";
+
+      anggota.forEach(function (orang) {
+
+        // Membuat element card
+        const card = document.createElement("div");
+
+        card.className =
+          "bg-white rounded-2xl overflow-hidden shadow-lg " +
+          "hover:shadow-2xl hover:-translate-y-2 " +
+          "transition duration-300";
+
+
+        // Isi card
+        card.innerHTML = `
+
+          <div
+            class="h-48 bg-cover bg-center relative"
+            style="background-image:
+              url('${orang.fotoLokasi}');">
+
+            <span
+              class="
+                absolute bottom-3 left-3
+                bg-black/60 text-white
+                px-3 py-2
+                rounded-full
+                text-sm font-medium
+              ">
+
+              ${orang.lokasi}
+
+            </span>
+
+          </div>
+
+
+          <div class="relative flex justify-center">
+
+            <img
+              src="${orang.fotoProfil}"
+              alt="${orang.nama}"
+              class="
+                w-28 h-28
+                rounded-full
+                object-cover
+                border-4 border-white
+                shadow-lg
+                -mt-14
+              ">
+
+          </div>
+
+
+          <div class="text-center px-6 pb-6 pt-3">
+
+            <h3 class="text-xl font-bold">
+              ${orang.nama}
+            </h3>
+
+            <div class="text-green-600
+                        font-semibold text-sm mt-1">
+
+              Anggota Kelompok
+
+            </div>
+
+            <p class="text-gray-500
+                      text-sm mt-3
+                      leading-relaxed">
+
+              ${orang.bio}
+
+            </p>
+
+
+            <!-- BUTTON DELETE -->
+
+            <button
+              onclick="hapusAnggota(${orang.id})"
+              class="
+                mt-5
+                bg-red-500
+                hover:bg-red-600
+                text-white
+                px-5 py-2
+                rounded-lg
+                font-semibold
+                transition
+              ">
+
+              Delete
+
+            </button>
+
+          </div>
+
+        `;
+
+
+        // Memasukkan card ke DOM
+        container.appendChild(card);
+
+      });
+
+    }
+
+
+    // ==========================================
+    // DELETE / HAPUS DATA
+    // ==========================================
+
+    function hapusAnggota(id) {
+
+      // Konfirmasi sebelum menghapus
+      const yakin = confirm(
+        "Apakah Anda yakin ingin menghapus anggota ini?"
+      );
+
+      if (!yakin) {
+        return;
+      }
+
+
+      // Filter data berdasarkan ID
+      anggota = anggota.filter(function (orang) {
+
+        return orang.id !== id;
+
+      });
+
+
+      // Render ulang DOM
+      tampilkanAnggota();
+
+    }
+
+
+    // ==========================================
+    // CREATE / TAMBAH DATA
+    // ==========================================
+
+    form.addEventListener("submit", function (event) {
+
+      // Mencegah halaman reload
+      event.preventDefault();
+
+
+      // Membuat data anggota baru
+      const anggotaBaru = {
+
+        id: Date.now(),
+
+        nama:
+          document.getElementById("nama").value,
+
+        lokasi:
+          document.getElementById("lokasi").value,
+
+        fotoProfil:
+          document.getElementById("fotoProfil").value,
+
+        fotoLokasi:
+          document.getElementById("fotoLokasi").value,
+
+        bio:
+          document.getElementById("bio").value
+
+      };
+
+
+      // Menambahkan ke array
+      anggota.push(anggotaBaru);
+
+
+      // Menampilkan ulang data
+      tampilkanAnggota();
+
+
+      // Mengosongkan form
+      form.reset();
+
+    });
+
+
+    // ==========================================
+    // MENAMPILKAN DATA SAAT HALAMAN DIBUKA
+    // ==========================================
+
+    tampilkanAnggota();
+
+  </script>
+
+</body>
+
+</html>
+```
