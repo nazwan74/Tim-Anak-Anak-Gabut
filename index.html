@@ -15,10 +15,14 @@
     <p class="text-gray-500">Kolaborasi anggota kelompok</p>
   </header>
 
+  <div class="max-w-6xl mx-auto px-6 pt-6">
+    <input type="text" id="searchInput" placeholder="Cari destinasi" class="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-400">
+  </div>
+
   <main class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 max-w-6xl mx-auto">
 
     <!-- ===== CARD 1 - Liyenvan Marsada Siregar ===== -->
-    <div class="bg-white rounded-3xl shadow-lg p-5 w-80 flex flex-col justify-between border border-gray-100">
+    <div class="card bg-white rounded-3xl shadow-lg p-5 w-80 flex flex-col justify-between border border-gray-100">
         <div>
             <div class="relative mb-4">
                 <img src="https://cdn.discordapp.com/attachments/1058617166125072425/1549709110935822346/d057426235f0b63655bc6fc90f48837a.jpg?ex=6aabae94&is=6aaa5d14&hm=6b5597120fee9139ac1d537b8749000d12f1c0ea0d2347b219541e83878eff80&" 
@@ -28,7 +32,7 @@
 
             <div class="flex justify-between items-start mb-2">
                 <div>
-                    <h2 class="text-xl font-bold text-gray-900">Gunung Bromo</h2>
+                    <h2 class="card-title text-xl font-bold text-gray-900">Gunung Bromo</h2>
                     <p class="text-sm text-gray-500 font-medium">Jawa Timur</p>
                 </div>
             </div>
@@ -52,7 +56,7 @@
     </div>
 
     <!-- ===== CARD 2 - Tiara Zalfa Dzakiah ===== -->
-     <article class="bg-white rounded-3xl p-3 shadow-md border border-gray-100 flex flex-col justify-between space-y-4 max-w-sm mx-auto transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+     <article class="card bg-white rounded-3xl p-3 shadow-md border border-gray-100 flex flex-col justify-between space-y-4 max-w-sm mx-auto transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <!--Gambar Destinasi-->
       <figure class="w-full h-52 rounded-2xl overflow-hidden">
         <img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_85/c_fill,w_1000/v1628089070/blog/wzf9irgne508ytlxl8ra.webp" alt="Raja Ampat, Papua Barat" class="w-full h-full object-cover">
@@ -61,7 +65,7 @@
       <!--Judul, lokasi, dan tombol favorit-->
       <div class="flex items-center justify-between px-1">
         <div>
-          <h3 class="text-xl font-bold text-gray-900">Raja Ampat</h3>
+          <h3 class="card-title text-xl font-bold text-gray-900">Raja Ampat</h3>
           <p class="text-sm font-medium text-gray-400">Papua Barat</p>
         </div>
         <button type="button" 
@@ -102,8 +106,8 @@
 
 
     <!-- ===== CARD 3 - Arga Ardhana Pangestu Ashari ===== -->
-```html
-<div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-300">
+
+<div class="card bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-300">
 
     <!-- Header / Foto Lokasi -->
     <div
@@ -135,7 +139,7 @@
     <!-- Isi Card -->
     <div class="text-center px-6 pb-6 pt-3">
 
-        <h3 class="text-xl font-bold text-gray-800">
+        <h3 class="card-title text-xl font-bold text-gray-800">
             Arga Ardhana Pangestu Ashari
         </h3>
 
@@ -150,11 +154,10 @@
     </div>
 
 </div>
-```
 
 
     <!-- ===== CARD 4 - Rafli Gustiansyah ===== -->
-     <article class="md:col-start-3 bg-white rounded-lg shadow-md overflow-hidden flex flex-col hover:shadow-xl hover:-translate-y-1 transition duration-300">
+     <article class="card md:col-start-3 bg-white rounded-lg shadow-md overflow-hidden flex flex-col hover:shadow-xl hover:-translate-y-1 transition duration-300">
       <div class="relative">
   <img
     src="https://media.istockphoto.com/id/1206178443/id/foto/pemandangan-udara-pulau-padar-yang-megah-dengan-sinar-matahari-yang-dramatis-saat-matahari.webp?a=1&b=1&s=612x612&w=0&k=20&c=cGB_M8D5GF1zSlno2znWnLCfxYw7xMo9awheNSgd2vo="
@@ -166,7 +169,7 @@
     </div>
 
   <div class="w-full bg-gradient-to-b from-orange-200 text-center py-4 px-5">
-    <h2 class="text-2xl font-serif font-bold tracking-wide mb-1">~Labuan Bajo~</h2>
+    <h2 class="card-title text-2xl font-serif font-bold tracking-wide mb-1">~Labuan Bajo~</h2>
     <p class="text-gray-500 text-xs font-serif font-bold">Kota Seribu Sunset</p>
   </div>
 
