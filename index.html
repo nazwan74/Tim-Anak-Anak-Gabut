@@ -21,8 +21,8 @@
     <div class="bg-white rounded-3xl shadow-lg p-5 w-80 flex flex-col justify-between border border-gray-100">
         <div>
             <div class="relative mb-4">
-                <img src="https://cdn.discordapp.com/attachments/1058617166125072425/1549709110935822346/d057426235f0b63655bc6fc90f48837a.jpg?ex=6aabae94&is=6aaa5d14&hm=6b5597120fee9139ac1d537b8749000d12f1c0ea0d2347b219541e83878eff80&" 
-                     alt="Raja Ampat" 
+                <img src="https://anekatempatwisata.com/wp-content/uploads/2015/07/Gunung-Bromo-Jawa-Timur.jpg" 
+                     alt="Gunung Bromo" 
                      class="w-full h-52 object-cover rounded-2xl">
             </div>
 
@@ -31,6 +31,19 @@
                     <h2 class="text-xl font-bold text-gray-900">Gunung Bromo</h2>
                     <p class="text-sm text-gray-500 font-medium">Jawa Timur</p>
                 </div>
+                <!-- Tombol Like -->
+                <button type="button" onclick="handleLike(this)" 
+                    aria-label="Tambah ke Favorit" 
+                    class="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:text-red-500 hover:border-red-200 hover:bg-red-50 transition-all duration-200 active:scale-95">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                </button>
+            </div>
+            
+            <!-- Counter Like -->
+            <div class="text-xs text-gray-500 font-medium mb-3 px-1">
+              <span class="like-count">0</span> Suka
             </div>
 
             <p class="text-xs text-gray-500 leading-relaxed mb-5">
@@ -58,19 +71,24 @@
         <img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_85/c_fill,w_1000/v1628089070/blog/wzf9irgne508ytlxl8ra.webp" alt="Raja Ampat, Papua Barat" class="w-full h-full object-cover">
       </figure>
 
-      <!--Judul, lokasi, dan tombol favorit-->
+      <!--Judul, lokasi, dan tombol Like-->
       <div class="flex items-center justify-between px-1">
         <div>
           <h3 class="text-xl font-bold text-gray-900">Raja Ampat</h3>
           <p class="text-sm font-medium text-gray-400">Papua Barat</p>
         </div>
-        <button type="button" 
-            aria-label="Tambah ke Favorit" 
+        <button type="button" onclick="handleLike(this)"
+            aria-label="Tombol Like" 
             class="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:text-red-500 hover:border-red-200 hover:bg-red-50 transition-all duration-200 active:scale-95">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
           </svg>
         </button>
+      </div>
+      
+      <!-- Counter Like (Reset ke 0) -->
+      <div class="px-1 text-xs text-gray-500 font-medium">
+        <span class="like-count">0</span> Suka
       </div>
 
       <!--deskripsi singkat-->
@@ -78,126 +96,164 @@
         Nikmati keindahan gugusan pulau karang dan keanekaragaman hayati bawah laut terbaik di surga tersembunyi Indonesia Timur.
       </p>
       <div class="px-1 pt-1">
-    <ul class="flex items-center justify-between text-left gap-2">
-  <li class="flex flex-col">
-    <span class="text-xs font-bold text-gray-900">Speed Boat</span>
-    <span class="text-[10px] text-gray-400">Transportasi</span>
-  </li>
-  <li class="flex flex-col">
-    <span class="text-xs font-bold text-gray-900">Snorkeling</span>
-    <span class="text-[10px] text-gray-400">Aktivitas</span>
-  </li>
-  <li class="flex flex-col">
-    <span class="text-xs font-bold text-gray-900">Resort Stay</span>
-    <span class="text-[10px] text-gray-400">Akomodasi</span>
-  </li>
-</ul>
-  </div>
-    <div class="pt-2">
-      <button type="button" class="w-full bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-white text-sm font-medium py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-200 active:scale-98">
-      See more
-      </button>
-    </div>
+        <ul class="flex items-center justify-between text-left gap-2">
+          <li class="flex flex-col">
+            <span class="text-xs font-bold text-gray-900">Speed Boat</span>
+            <span class="text-[10px] text-gray-400">Transportasi</span>
+          </li>
+          <li class="flex flex-col">
+            <span class="text-xs font-bold text-gray-900">Snorkeling</span>
+            <span class="text-[10px] text-gray-400">Aktivitas</span>
+          </li>
+          <li class="flex flex-col">
+            <span class="text-xs font-bold text-gray-900">Resort Stay</span>
+            <span class="text-[10px] text-gray-400">Akomodasi</span>
+          </li>
+        </ul>
+      </div>
+      <div class="pt-2">
+        <button type="button" class="w-full bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-white text-sm font-medium py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-200 active:scale-98">
+        See more
+        </button>
+      </div>
     </article>
 
-
     <!-- ===== CARD 3 - Arga Ardhana Pangestu Ashari ===== -->
-```html
-<div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-300">
-
-    <!-- Header / Foto Lokasi -->
-    <div
-        class="h-48 bg-cover bg-center relative"
-        style="background-image: url('Equator Park Jeruju Besar.JPEG');">
-
-        <span
-            class="absolute bottom-3 left-3 bg-black/60 text-white
-                   px-3 py-1 rounded-full text-sm backdrop-blur-sm">
-            Equator Park Jeruju Besar
-        </span>
-
-    </div>
-
-
-    <!-- Foto Profil -->
-    <div class="relative flex justify-center">
-
-        <img
-            src="Foto Di Bis.JPEG"
-            alt="Foto Arga Ardhana Pangestu Ashari"
-            class="w-28 h-28 rounded-full object-cover
-                   border-4 border-white shadow-lg
-                   -mt-14">
-
-    </div>
-
-
-    <!-- Isi Card -->
-    <div class="text-center px-6 pb-6 pt-3">
-
-        <h3 class="text-xl font-bold text-gray-800">
-            Arga Ardhana Pangestu Ashari
-        </h3>
-
-        <div class="text-green-600 font-semibold text-sm mt-1">
-            Anggota Kelompok
+    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-300 flex flex-col justify-between">
+      <div>
+        <!-- Header / Foto Lokasi -->
+        <div class="h-48 bg-cover bg-center relative" style="background-image: url('Equator Park Jeruju Besar.JPEG');">
+            <span class="absolute bottom-3 left-3 bg-black/60 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm">
+                Equator Park Jeruju Besar
+            </span>
         </div>
 
-        <p class="text-gray-500 text-sm mt-3 leading-relaxed">
-            Suka menikmati sunset sambil bikin konten.
-        </p>
+        <!-- Foto Profil -->
+        <div class="relative flex justify-center">
+            <img src="Foto Di Bis.JPEG" alt="Foto Arga Ardhana Pangestu Ashari"
+                class="w-28 h-28 rounded-full object-cover border-4 border-white shadow-lg -mt-14">
+        </div>
 
+        <!-- Isi Card -->
+        <div class="text-center px-6 pb-2 pt-3">
+            <div class="flex items-center justify-between">
+              <div class="text-left">
+                <h3 class="text-xl font-bold text-gray-800">
+                    Arga Ardhana Pangestu Ashari
+                </h3>
+                <div class="text-green-600 font-semibold text-sm mt-1">
+                    Anggota Kelompok
+                </div>
+              </div>
+              <!-- Tombol Like -->
+              <button type="button" onclick="handleLike(this)" 
+                  aria-label="Tombol Like" 
+                  class="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:text-red-500 hover:border-red-200 hover:bg-red-50 transition-all duration-200 active:scale-95">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Counter Like -->
+            <div class="text-left text-xs text-gray-500 font-medium mt-1">
+              <span class="like-count">0</span> Suka
+            </div>
+
+            <p class="text-gray-500 text-sm mt-3 leading-relaxed text-left">
+                Suka menikmati sunset sambil bikin konten.
+            </p>
+        </div>
+      </div>
+      <div></div>
     </div>
-
-</div>
-```
-
 
     <!-- ===== CARD 4 - Rafli Gustiansyah ===== -->
-     <article class="md:col-start-3 bg-white rounded-lg shadow-md overflow-hidden flex flex-col hover:shadow-xl hover:-translate-y-1 transition duration-300">
+    <article class="md:col-start-3 bg-white rounded-lg shadow-md overflow-hidden flex flex-col hover:shadow-xl hover:-translate-y-1 transition duration-300">
       <div class="relative">
-  <img
-    src="https://media.istockphoto.com/id/1206178443/id/foto/pemandangan-udara-pulau-padar-yang-megah-dengan-sinar-matahari-yang-dramatis-saat-matahari.webp?a=1&b=1&s=612x612&w=0&k=20&c=cGB_M8D5GF1zSlno2znWnLCfxYw7xMo9awheNSgd2vo="
-    alt="Labuan Bajo"
-    class="w-full h-48 object-cover">
-    <span class="absolute top-3 left-3 bg-white/90 text-xs font-semibold px-2 py-1 rounded-full text-gray-700">
-      NTT, Indonesia
-    </span>
-    </div>
+        <img src="https://media.istockphoto.com/id/1206178443/id/foto/pemandangan-udara-pulau-padar-yang-megah-dengan-sinar-matahari-yang-dramatis-saat-matahari.webp?a=1&b=1&s=612x612&w=0&k=20&c=cGB_M8D5GF1zSlno2znWnLCfxYw7xMo9awheNSgd2vo="
+          alt="Labuan Bajo"
+          class="w-full h-48 object-cover">
+        <span class="absolute top-3 left-3 bg-white/90 text-xs font-semibold px-2 py-1 rounded-full text-gray-700">
+          NTT, Indonesia
+        </span>
+      </div>
 
-  <div class="w-full bg-gradient-to-b from-orange-200 text-center py-4 px-5">
-    <h2 class="text-2xl font-serif font-bold tracking-wide mb-1">~Labuan Bajo~</h2>
-    <p class="text-gray-500 text-xs font-serif font-bold">Kota Seribu Sunset</p>
-  </div>
+      <div class="w-full bg-gradient-to-b from-orange-200 text-center py-4 px-5 relative">
+        <h2 class="text-2xl font-serif font-bold tracking-wide mb-1">~Labuan Bajo~</h2>
+        <p class="text-gray-500 text-xs font-serif font-bold">Kota Seribu Sunset</p>
+        <!-- Tombol Like -->
+        <div class="absolute right-4 top-4">
+          <button type="button" onclick="handleLike(this)" 
+              aria-label="Tombol Like" 
+              class="w-9 h-9 bg-white rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:text-red-500 hover:border-red-200 hover:bg-red-50 transition-all duration-200 active:scale-95 shadow-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </button>
+        </div>
+      </div>
 
-  <div class="flex items-center justify-center gap-4 py-3 border-b border-gray-100">
-    <div class="flex items-center gap-1">
-      <img src="https://media.istockphoto.com/id/1088792574/id/vektor/ikon-bintang.jpg?s=612x612&w=0&k=20&c=CV2_47nvlxO5Qg_fHAfrB_q04oEMS9m8h88GQWOkb20=" alt="Rating" class="w-5 h-5">
-      <span class="text-sm font-semibold text-gray-700">4.8</span>
-    </div>
-    <div class="flex items-center gap-1">
-      <img src="https://cdn-icons-png.flaticon.com/128/11213/11213138.png" alt="Ulasan" class="w-5 h-5">
-      <span class="text-sm">1243 Ulasan</span>
-    </div>
-  </div>
+      <!-- Counter Like -->
+      <div class="px-5 pt-2 text-xs text-gray-500 font-medium">
+        <span class="like-count">0</span> Suka
+      </div>
 
-  <div class="flex flex-col flex-grow items-center text-center p-5">
-    <p class="text-gray-600 text-sm">
-      Jelajahi pesona alam Labuan Bajo di Nusa Tenggara Timur yang terkenal dengan laut biru dan panorama alam yang indah sekaligus menikmati keindahan bawah laut dan sunset yang menakjubkan.
-    </p>
-    <div class="flex flex-wrap justify-center gap-2 mt-4">
-      <span class="bg-gray-200 text-gray-800 text-xs rounded-full px-3 py-1">Alam</span>
-      <span class="bg-gray-200 text-gray-800 text-xs rounded-full px-3 py-1">Pantai</span>
-      <span class="bg-gray-200 text-gray-800 text-xs rounded-full px-3 py-1">Diving</span>
-    </div>
-  </div>
-</article>
+      <div class="flex items-center justify-center gap-4 py-3 border-b border-gray-100">
+        <div class="flex items-center gap-1">
+          <img src="https://media.istockphoto.com/id/1088792574/id/vektor/ikon-bintang.jpg?s=612x612&w=0&k=20&c=CV2_47nvlxO5Qg_fHAfrB_q04oEMS9m8h88GQWOkb20=" alt="Rating" class="w-5 h-5">
+          <span class="text-sm font-semibold text-gray-700">4.8</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <img src="https://cdn-icons-png.flaticon.com/128/11213/11213138.png" alt="Ulasan" class="w-5 h-5">
+          <span class="text-sm">1243 Ulasan</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col flex-grow items-center text-center p-5">
+        <p class="text-gray-600 text-sm">
+          Jelajahi pesona alam Labuan Bajo di Nusa Tenggara Timur yang terkenal dengan laut biru dan panorama alam yang indah sekaligus menikmati keindahan bawah laut dan sunset yang menakjubkan.
+        </p>
+        <div class="flex flex-wrap justify-center gap-2 mt-4">
+          <span class="bg-gray-200 text-gray-800 text-xs rounded-full px-3 py-1">Alam</span>
+          <span class="bg-gray-200 text-gray-800 text-xs rounded-full px-3 py-1">Pantai</span>
+          <span class="bg-gray-200 text-gray-800 text-xs rounded-full px-3 py-1">Diving</span>
+        </div>
+      </div>
+    </article>
+
   </main>
 
   <footer class="text-center text-gray-400 text-sm p-4">
     &copy; 2026 Tim ISB2
   </footer>
 
-</body>
+  <script>
+    function handleLike(button) {
+      const cardContainer = button.closest('.bg-white, article');
+      const likeCountSpan = cardContainer.querySelector('.like-count');
+      const svgIcon = button.querySelector('svg');
 
+      let currentCount = parseInt(likeCountSpan.textContent);
+      let isLiked = button.getAttribute('data-liked') === 'true';
+
+      if (!isLiked) {
+        currentCount += 1;
+        button.setAttribute('data-liked', 'true');
+        svgIcon.classList.remove('fill-none');
+        svgIcon.classList.add('fill-red-500', 'text-red-500');
+        button.classList.add('border-red-200', 'bg-red-50', 'text-red-500');
+      } else {
+        currentCount -= 1;
+        button.setAttribute('data-liked', 'false');
+        svgIcon.classList.remove('fill-red-500', 'text-red-500');
+        svgIcon.classList.add('fill-none');
+        button.classList.remove('border-red-200', 'bg-red-50', 'text-red-500');
+      }
+
+      likeCountSpan.textContent = currentCount;
+    }
+  </script>
+
+</body>
 </html>
